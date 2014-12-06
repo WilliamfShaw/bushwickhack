@@ -1,6 +1,8 @@
 class MapsController < ApplicationController
 
 	def index
+		@start_address = params[:start]
+		@end_address = params[:end]
 		if (params[:start] && params[:end])
 			start_response = Geocoder.search(params[:start])
 			if start_response != []
