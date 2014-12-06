@@ -29,7 +29,7 @@ class MapsController < ApplicationController
 			end
 		else
 			@start_locations = Apiuser.get_four_square_info(40.7108500,-73.9339270)
-			@mid_locations = Apiuser.get_four_square_info((40.7108500 + 40.7158757)/2 + (-73.9339270 + -73.9280905)/2)
+			@mid_locations = Apiuser.get_four_square_info((40.7108500 + 40.7158757)/2, (-73.9339270 + -73.9280905)/2)
 			@end_locations = Apiuser.get_four_square_info(40.7158757, -73.9280905)
 		end
 	end
