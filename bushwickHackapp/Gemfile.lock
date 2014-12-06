@@ -54,9 +54,12 @@ GEM
     json (1.8.1)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (2.4.3)
     minitest (5.4.3)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     pg (0.17.1)
@@ -127,6 +130,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  mocha
   pg
   pry-rails
   rails (= 4.1.8)

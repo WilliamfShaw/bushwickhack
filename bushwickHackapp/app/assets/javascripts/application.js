@@ -14,3 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+var map = L.map('map').setView([40.7108237, -73.93449199999999], 13);
