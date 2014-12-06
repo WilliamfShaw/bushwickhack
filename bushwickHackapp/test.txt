@@ -14,7 +14,9 @@
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script>
-
+  var directionsDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var map;
 function initialize() {
   var startLocation = new google.maps.LatLng(<%= @start_lat %>,<%=@start_lng%>)
   var endLocation = new google.maps.LatLng(<%=@end_lat%>,<%=@end_lng%>)
@@ -64,10 +66,27 @@ function initialize() {
       title: "<%= location[:name] %>"
     });
   <% end %>
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay.setMap(map);
 }
 
+function calcRoute() {
+  var start = "297 Devoe Street, Brooklyn, NY"
+  var end = "946 Bushwick Ave, Brooklyn, NY"
+
+  var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
 
     google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addDomListener(window, 'load', calcRoute);
 
     </script>
   </head>
