@@ -1,7 +1,7 @@
 class Apiuser
 
   def self.make_four_square_request(lat,long)
-    HTTParty.get("https://api.foursquare.com/v2/venues/explore?ll=" + lat.to_s + "," + long.to_s + "&openNow=1&limit=150&client_id=03ENCDSU3A24H21QOVDBN1L1V3BU4NSJQQMDRMEKX3JH2BKH&client_secret=UDQBAKLKPEN14WJWMXRL2HTAJXNR0QCMC3X50WPBK3H5KSEB&v=20141206&m=foursquare")["response"]["groups"][0]["items"]
+    HTTParty.get("https://api.foursquare.com/v2/venues/explore?ll=" + lat.to_s + "," + long.to_s + "&openNow=1&limit=150&client_id=#{ENV['FOUR_SQUARE_ID']}&client_secret=#{ENV['FOUR_SQUARE_PW']}&v=20141206&m=foursquare")["response"]["groups"][0]["items"]
   end
 
   def self.get_four_square_info(lat,long)
