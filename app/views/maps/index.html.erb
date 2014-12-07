@@ -6,10 +6,11 @@
     <title>Simple markers</title>
     <style>
       html, body, #map-canvas {
+        text-align:center;
         height: 100%;
         width: 100%;
         margin: 0px;
-        padding: 0px
+        padding: 0px;
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
@@ -79,16 +80,19 @@ directionsDisplay = new google.maps.DirectionsRenderer();
     </script>
   </head>
   <body style="background:lavender;">
-    <h1>BushWalk</h1>
-    <p>Welcome to BushWalk! BushWalk maps your route and displays open businesses along the way, so you can pick high-traffic streets to walk along.</p>
-    <div>
-      <%= form_tag(maps_path, method: :get) do %>
-      <%= label_tag "Start Address" %>
-      <%= text_field_tag :start %>
-      <%= label_tag "Start Address" %>
-      <%= text_field_tag :end %>
-      <%= submit_tag "Submit" %>
-      <% end %>
+    <div style="margin:5px;">
+      <h1>BushWalk</h1>
+      <p>Welcome to BushWalk! BushWalk maps your route and displays open businesses along the way, so you can pick high-traffic streets to walk along.</p>
+      <div>
+        <%= form_tag(maps_path, method: :get) do %>
+        <%= label_tag "Start Address" %><br>
+        <%= text_field_tag :start %>
+        <br>
+        <%= label_tag "End Address" %><br>
+        <%= text_field_tag :end %><br>
+        <%= submit_tag "Submit" %>
+        <% end %>
+      </div>
     </div>
     <div id="map-canvas">
     </div>
