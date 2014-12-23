@@ -25,7 +25,6 @@ class Apiuser
     location = Geocoder.search(HTTParty.get('http://api.ipify.org?format=json')["ip"])[0]
     lat = location.data["latitude"]
     long = location.data["longitude"]
-    binding.pry
     return {lat: lat, long: long}
   end
 
